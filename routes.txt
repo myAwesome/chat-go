@@ -1,0 +1,25 @@
+
+GET    http://localhost:8020/room
+POST   http://localhost:8020/room
+GET    http://localhost:8020/room/:id
+PUT    http://localhost:8020/room/:id
+DELETE http://localhost:8020/room/:id
+
+GET    http://localhost:8020/participant
+POST   http://localhost:8020/participant
+GET    http://localhost:8020/participant/:id
+PUT    http://localhost:8020/participant/:id
+DELETE http://localhost:8020/participant/:id
+
+GET    http://localhost:8020/message
+POST   http://localhost:8020/message
+GET    http://localhost:8020/message/:id
+PUT    http://localhost:8020/message/:id
+DELETE http://localhost:8020/message/:id
+
+GET    http://localhost:8020/room-has-participants
+POST   http://localhost:8020/room-has-participants
+GET    http://localhost:8020/room-has-participants/:id
+PUT    http://localhost:8020/room-has-participants/:id
+DELETE http://localhost:8020/room-has-participants/:id
+

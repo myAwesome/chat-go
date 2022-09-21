@@ -1,5 +1,8 @@
 # chat-go
-Simple chat implementation in go
+Simple chat implementation
+
+Golang + Mysql  
+gin, gorm
 
 docker-compose up -d --build &&
 docker-compose ps &&

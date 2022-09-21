@@ -64,10 +64,6 @@ func (RoomHasParticipants) TableName() string {
 	return "tbl_room_has_participants"
 }
 
-// Relations
-
-// Value objects
-
 func main() {
 	err := godotenv.Load()
 	if err != nil {
@@ -388,67 +384,67 @@ func ListRoomHasParticipants(c *gin.Context) {
 
 func CreateRoomHasParticipants(c *gin.Context) {
 	db := DBInstance(c)
-	var room_has_participants RoomHasParticipants
+	var roomHasParticipants RoomHasParticipants
 
-	if err := c.Bind(&room_has_participants); err != nil {
+	if err := c.Bind(&roomHasParticipants); err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
 
-	if err := db.Create(&room_has_participants).Error; err != nil {
+	if err := db.Create(&roomHasParticipants).Error; err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(201, room_has_participants)
+	c.JSON(201, roomHasParticipants)
 }
 
 func ReadRoomHasParticipants(c *gin.Context) {
 	db := DBInstance(c)
 	id := c.Params.ByName("id")
-	var room_has_participants RoomHasParticipants
-	if db.First(&room_has_participants, id).Error != nil {
+	var roomHasParticipants RoomHasParticipants
+	if db.First(&roomHasParticipants, id).Error != nil {
 		content := gin.H{"error": "room_has_participants with id#" + id + " not found"}
 		c.JSON(404, content)
 		return
 	}
-	c.JSON(200, room_has_participants)
+	c.JSON(200, roomHasParticipants)
 }
 
 func UpdateRoomHasParticipants(c *gin.Context) {
 	db := DBInstance(c)
 	id := c.Params.ByName("id")
-	var room_has_participants RoomHasParticipants
-	if db.First(&room_has_participants, id).Error != nil {
+	var roomHasParticipants RoomHasParticipants
+	if db.First(&roomHasParticipants, id).Error != nil {
 		content := gin.H{"error": "room_has_participants with id#" + id + " not found"}
 		c.JSON(404, content)
 		return
 	}
 
-	if err := c.Bind(&room_has_participants); err != nil {
+	if err := c.Bind(&roomHasParticipants); err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
 
-	if err := db.Save(&room_has_participants).Error; err != nil {
+	if err := db.Save(&roomHasParticipants).Error; err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(200, room_has_participants)
+	c.JSON(200, roomHasParticipants)
 
 }
 
 func DeleteRoomHasParticipants(c *gin.Context) {
 	db := DBInstance(c)
 	id := c.Params.ByName("id")
-	var room_has_participants RoomHasParticipants
-	if db.First(&room_has_participants, id).Error != nil {
+	var roomHasParticipants RoomHasParticipants
+	if db.First(&roomHasParticipants, id).Error != nil {
 		content := gin.H{"error": "room_has_participants with id#" + id + " not found"}
 		c.JSON(404, content)
 		return
 	}
-	if err := db.Delete(&room_has_participants).Error; err != nil {
+	if err := db.Delete(&roomHasParticipants).Error; err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
